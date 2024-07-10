@@ -17,32 +17,31 @@ kick_start_time: 1
 
 ## Chamber
 # Air Filtration/Nevermore
-[heater_fan nevermore]
+[fan_generic nevermore]
+gcode_id: nevermore
 pin: PE6
-fan_speed: 0.5
 kick_start_time: 1
 off_below: 0.1
-heater: heater_bed
-heater_temp: 70
 
-# Chamber top
-[temperature_fan chamber_top]
+# Chamber exhaust
+[fan_generic chamber_exhaust]
+gcode_id: chamber_exhaust
 pin: PE5
-max_power: 1.0
-shutdown_speed: 0.0
-kick_start_time: 5.0
-cycle_time:0.01
-off_below:0.1
-sensor_type: Generic 3950 # NTC 100K
+kick_start_time: 1
+off_below: 0.1
+
+# Temperature sensor top
+[temperature_sensor chamber]
+gcode_id: chamber
 sensor_pin: PA1
+sensor_type: Generic 3950 # NTC 100K
 min_temp: 0
-max_temp: 99
-target_temp: 65
-control: watermark
-gcode_id: C
+max_temp: 100
+
 
 # Temperature sensor bottom
 [temperature_sensor chamber_bottom]
+gcode_id: chamber_bottom
 sensor_pin: PA2
 sensor_type: Generic 3950 # NTC 100K
 min_temp: 0
@@ -51,33 +50,25 @@ max_temp: 100
 
 ## Compartment
 #
-[heater_fan compartment_airflow]
+[fan_generic compartment_airflow]
+gcode_id: compartment_airflow
 pin: PE0
 kick_start_time: 1
-fan_speed: 0.2
-heater: heater_bed
-heater_temp: 70
 off_below: 0.1
 
-
-[controller_fan tmc5160_fan]
-pin: PB8
-tachometer_pin: PC14
-kick_start_time: 0.5
-fan_speed: 1
-stepper: stepper_z,stepper_y
-
-[controller_fan tmc2209_fan]
+#
+[fan_generic tmc_fan]
+gcode_id: tmc_fan
 pin: PC12
 kick_start_time: 1
-fan_speed: 0.2
 off_below: 0.1
-stepper: stepper_z
 
 # Raspberry CB1 fan
 [temperature_fan cb1_fan]
+gcode_id: cb1_fan
 sensor_type: temperature_host
-pin: PE4
+pin: PB8
+tachometer_pin: PC14
 max_temp: 75.0
 min_temp: 15.0
 target_temp: 50
@@ -91,10 +82,3 @@ pid_Kp: 2.0
 pid_Ki: 5.0
 pid_Kd: 0.5
 pid_deriv_time: 2.0
-
-
-# # Chamber exhaust
-# [fan_generic cb1_fann]
-# pin: cb1:gpio269
-# kick_start_time: 1
-# off_below: 0.1
