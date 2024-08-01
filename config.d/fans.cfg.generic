@@ -6,6 +6,10 @@
 # Part fan
 [fan]
 pin: EBBCan:gpio13
+kick_start_time: 1
+cycle_time: 0.00003125
+hardware_pwm: True
+off_below: 0.01
 
 # Extruder fan
 [heater_fan extruder_fan]
@@ -13,26 +17,29 @@ pin: EBBCan:gpio14
 heater: extruder
 heater_temp: 50.0
 kick_start_time: 1
+cycle_time: 0.00005
 ##
 
 ## Chamber
 # Air Filtration/Nevermore
 [fan_generic nevermore]
-gcode_id: nevermore
 pin: PE6
 kick_start_time: 1
+cycle_time: 0.01
 off_below: 0.1
+
 
 # Chamber exhaust
 [fan_generic chamber_exhaust]
-gcode_id: chamber_exhaust
 pin: PE5
 kick_start_time: 1
-off_below: 0.1
+cycle_time: 0.00003125
+hardware_pwm: True
+off_below: 0.01
 
 # Temperature sensor top
 [temperature_sensor chamber]
-gcode_id: chamber
+gcode_id: C
 sensor_pin: PA1
 sensor_type: Generic 3950 # NTC 100K
 min_temp: 0
@@ -41,7 +48,6 @@ max_temp: 100
 
 # Temperature sensor bottom
 [temperature_sensor chamber_bottom]
-gcode_id: chamber_bottom
 sensor_pin: PA2
 sensor_type: Generic 3950 # NTC 100K
 min_temp: 0
@@ -51,28 +57,27 @@ max_temp: 100
 ## Compartment
 #
 [fan_generic compartment_airflow]
-gcode_id: compartment_airflow
 pin: PE0
 kick_start_time: 1
 off_below: 0.1
 
 #
 [fan_generic tmc_fan]
-gcode_id: tmc_fan
 pin: PC12
 kick_start_time: 1
+cycle_time: 0.1
 off_below: 0.1
 
 # Raspberry CB1 fan
 [temperature_fan cb1_fan]
-gcode_id: cb1_fan
 sensor_type: temperature_host
 pin: PB8
 tachometer_pin: PC14
 max_temp: 75.0
 min_temp: 15.0
-target_temp: 50
-kick_start_time: 1.0
+target_temp: 60
+kick_start_time: 1
+cycle_time: 0.1
 max_speed: 1.0
 min_speed: 0
 off_below: 0.2

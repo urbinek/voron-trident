@@ -1,7 +1,9 @@
-# With this configuration, the fan will run at 100% anytime the chamber temperature is above 45C. 
+# With this configuration, the fan will run at 100% anytime the chamber temperature is above 65C. 
+# based on temperature_fan:chamber_top:target_temp: 65
+#
 # The temperature is configurable later in gcode, ror example:
 # 
-# Place a M141 S70 in the start g-code to hold the chamber at a high temperature for the duration of the print
+# Place a  in the start g-code to hold the chamber at a high temperature for the duration of the print
 # Place a M141 S35 in the ending g-code to cooldown the chamber after a print is completed.
 
 [gcode_macro M141]
