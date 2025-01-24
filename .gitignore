@@ -1,3 +1,5 @@
 printer-2*_*.cfg
 *.bkp
 *.backup
+*.tar
+*.gz
