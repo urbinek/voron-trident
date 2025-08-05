@@ -1,7 +1,0 @@
-# Fan templates and configurations
-[temperature_fan Sunon_5020_24v_2wire]
-max_power: 1.0
-shutdown_speed: 0.0
-kick_start_time: 2.0
-cycle_time: 0.000015625
-off_below: 0.15
