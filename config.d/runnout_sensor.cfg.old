@@ -7,7 +7,7 @@
 # https://www.reddit.com/r/klippers/comments/lnadlr/comment/goeng7k/
 #####################################################################
 
-[SFD_sensor SFD_sensor ]
+[filament_switch_sensor SFD_sensor ]
 switch_pin: ^PC1
 pause_on_runout: False
 insert_gcode:
