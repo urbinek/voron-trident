@@ -1,0 +1,33 @@
+#####################################################################
+# https://ellis3dp.com/Print-Tuning-Guide/articles/useful_macros/pause_resume_filament.html
+#####################################################################
+# https://github.com/bigtreetech/smart-filament-detection-module/tree/master/V2.0/Manual
+#####################################################################
+# https://www.reddit.com/r/Ender3S1/comments/14zhmpz/runout_sensor_waste/
+# https://www.reddit.com/r/klippers/comments/lnadlr/comment/goeng7k/
+#####################################################################
+
+[SFD_sensor SFD_sensor ]
+switch_pin: ^PC1
+pause_on_runout: False
+insert_gcode:
+    M117 Switch Insert Detected
+    STATUS_HOMING
+runout_gcode:
+    M117 Switch Runout Detected
+    # SET_FILAMENT_SENSOR SENSOR=SFD_encoder ENABLE=0
+    F_CONSUMED
+    STATUS_BUSY
+
+[filament_motion_sensor SFD_encoder]
+switch_pin: ^PC2
+detection_length: 15
+extruder: extruder
+pause_on_runout: True
+insert_gcode:
+    M117 Encoder Insert Detected
+    STATUS_HOMING
+runout_gcode:
+    M117 Encoder Runout Detected
+    STATUS_BUSY
+    #BEEP I=12
