@@ -1,0 +1,191 @@
+{
+  "active_printer_id": "default",
+  "config_version": 23,
+  "dark_mode": true,
+  "display": {
+    "bed_mesh_render_mode": 0,
+    "dim_brightness": 30,
+    "dim_sec": 600,
+    "drm_device": "",
+    "gcode_render_mode": 0,
+    "gpu_3d_blocked": false,
+    "gpu_blur_blocked": false,
+    "sleep_sec": 1200
+  },
+  "gcode_viewer": {
+    "tube_sides": 4
+  },
+  "input": {
+    "calibration": {
+      "a": 1.0,
+      "b": 0.0,
+      "c": 0.0,
+      "d": 0.0,
+      "e": 1.0,
+      "f": 0.0,
+      "valid": false
+    },
+    "long_press_time": 500,
+    "scroll_limit": 10,
+    "scroll_throw": 25,
+    "touch_device": "",
+    "touch_range": {
+      "max_x": 0,
+      "max_y": 0,
+      "min_x": 0,
+      "min_y": 0,
+      "swap_axes": false,
+      "valid": false
+    }
+  },
+  "language": "en",
+  "log_path": "/tmp/helixscreen.log",
+  "motion": {
+    "jog_mode": 1
+  },
+  "printers": {
+    "default": {
+      "default_macros": {
+        "cooldown": "SET_HEATER_TEMPERATURE HEATER=extruder TARGET=0\nSET_HEATER_TEMPERATURE HEATER=heater_bed TARGET=0",
+        "load_filament": {
+          "gcode": "LOAD_FILAMENT",
+          "label": "Load"
+        },
+        "macro_1": {
+          "gcode": "HELIX_CLEAN_NOZZLE",
+          "label": "Clean Nozzle"
+        },
+        "macro_2": {
+          "gcode": "HELIX_BED_MESH_IF_NEEDED",
+          "label": "Bed Level"
+        },
+        "unload_filament": {
+          "gcode": "UNLOAD_FILAMENT",
+          "label": "Unload"
+        }
+      },
+      "extra_sensors": {},
+      "fans": {
+        "chamber": "fan_generic carbon_filter",
+        "exhaust": "",
+        "hotend": "heater_fan extruder",
+        "part": "fan"
+      },
+      "filament_sensors": {
+        "master_enabled": true,
+        "sensors": [
+          {
+            "enabled": true,
+            "klipper_name": "filament_switch_sensor SFD_sensor ",
+            "role": "none",
+            "type": "switch"
+          },
+          {
+            "enabled": true,
+            "klipper_name": "filament_motion_sensor SFD_encoder",
+            "role": "none",
+            "type": "motion"
+          },
+          {
+            "enabled": true,
+            "klipper_name": "filament_switch_sensor O2_sensor",
+            "role": "runout",
+            "type": "switch"
+          }
+        ]
+      },
+      "hardware": {
+        "expected": [],
+        "last_snapshot": {
+          "fans": [
+            "fan_generic carbon_filter",
+            "heater_fan compartment",
+            "controller_fan TMC5160",
+            "controller_fan TMC2209",
+            "temperature_fan RPI_CM4",
+            "fan",
+            "heater_fan extruder"
+          ],
+          "filament_sensors": [
+            "filament_switch_sensor SFD_sensor ",
+            "filament_motion_sensor SFD_encoder",
+            "filament_switch_sensor O2_sensor"
+          ],
+          "heaters": [
+            "heater_bed",
+            "extruder"
+          ],
+          "leds": [
+            "output_pin Chamber_Lighting",
+            "neopixel sb_leds"
+          ],
+          "sensors": [
+            "temperature_sensor MCU_M8P",
+            "temperature_sensor CM4",
+            "tmc5160 stepper_x",
+            "tmc5160 stepper_y",
+            "temperature_sensor chamber_top",
+            "temperature_sensor chamber_bottom",
+            "temperature_fan RPI_CM4",
+            "temperature_sensor mcu_toolhead"
+          ],
+          "timestamp": "2026-09-22T11:05:38Z"
+        },
+        "optional": []
+      },
+      "heaters": {
+        "bed": "heater_bed",
+        "hotend": "extruder"
+      },
+      "leds": {
+        "auto_paired_bases": [
+          "SET_NOZZLE_LEDS"
+        ],
+        "color_presets": [
+          "#FFFFFF",
+          "#FFD700",
+          "#FF6B35",
+          "#4FC3F7",
+          "#FF4444",
+          "#66BB6A",
+          "#9C27B0",
+          "#00BCD4"
+        ],
+        "last_brightness": 100,
+        "last_color": "#FFFFFF",
+        "last_white": 0.0,
+        "led_on_at_start": false,
+        "macro_devices": [
+          {
+            "name": "Set Nozzle Leds",
+            "off_macro": "SET_NOZZLE_LEDS_OFF",
+            "on_macro": "SET_NOZZLE_LEDS_ON",
+            "presets": [],
+            "toggle_macro": "",
+            "type": "on_off"
+          }
+        ],
+        "selected": [],
+        "selected_strips": [
+          "output_pin Chamber_Lighting"
+        ],
+        "startup_brightness": 80,
+        "strip": "output_pin Chamber_Lighting"
+      },
+      "moonraker_api_key": false,
+      "moonraker_host": "127.0.0.1",
+      "moonraker_port": 7125,
+      "printer_name": "voronik",
+      "temp_sensors": {
+        "bed": "heater_bed",
+        "hotend": "extruder"
+      },
+      "type": "Voron Trident"
+    },
+    "show_printer_switcher": false
+  },
+  "telemetry_enabled": false,
+  "theme": {
+    "preset": 0
+  }
+}
